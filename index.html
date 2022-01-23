@@ -1,73 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
-    <title>Primeiro Projeto</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Estabelecimentos</title>
 </head>
 
 <body>
-    <header class="menu-principal">
+    <Header class="menu-principal">
         <main>
             <div class="header-1">
-                <div class="logo">
-                    <img src="./img/logo.png" />
+                <div class="botao">
+                    <input id="pesquisa" type="text" placeholder="">
+                    <button>
+                        <i class="f-search">
+                             Pesquisar
+                        </i>
+                </button>
                 </div>
-                <div class="redes-sociais">
+
+                <div class="logo">
+                    <img src=" " alt="">
+                </div>
+                <div class="menu">
                     <ul>
                         <li>
-                            <a href=""><img src="./img/rss.png">
-                            </a>
+                            <a href="">Início</a>
                         </li>
                         <li>
-                            <a href="">
-                                <img src="./img/facebook.png">
-                            </a>
+                            <a href="">Notícias</a>
                         </li>
                         <li>
-                            <a href="">
-                                <img src="./img/twitter.png">
-                            </a>
+                            <a href="">Descontos</a>
                         </li>
                         <li>
-                            <a href="">
-                                <img src="./img/linkedin.png">
-                            </a>
+                            <a href="">Cinemas</a>
+                        </li>
+                        <li>
+                            <a href="">Clube</a>
                         </li>
                     </ul>
                 </div>
+                <div class="logo">
+                    <img src=".img/logo.png" alt="">
+                </div>
             </div>
         </main>
+    </Header>
+    <header class="header-2">
+        <ul id="lista"></ul>
+
+        <script>
+            clientes = ["Zapata Mexican Bar",
+                "Beer Mad",
+                "Taco El Pancho",
+                "Sheridans Irish Pub",
+                "Bar do Victor",
+                "Alright Brewing Co.",
+                "Amarillo Craft Beer",
+                "Dom. Bar - Vicente Machado",
+                "Bendito Boteco",
+                "277 Bar e Restaurante",
+                "Vosgerau Cerveja Artesanal",
+                "Vina", "Befresh",
+                "Vapza Alimentos",
+                "GRATIA MERCEARIA NATURAL",
+                "PhiCasa do Verdureiro Orgânicos e Saudáveislips"
+            ]
+            clientes.sort();
+            t = ""
+
+            for (i in clientes) {
+                t += "<li>" + clientes[i] + "</li>"
+                clientes[i] = clientes[i].toLowerCase()
+            }
+
+            lista.innerHTML = t
+
+            pesquisa.onkeyup = function(e) {
+
+                t = this.value
+                r = new RegExp(t, "g")
+
+                for (i in clientes) {
+                    if (clientes[i].match(r))
+                        lista.children[i].removeAttribute("style")
+                    else
+                        lista.children[i].style.display = "none"
+                }
+            }
+        </script>
     </header>
-    <main class="col-100">
-        <div class="header-2">
-            <div class="menu">
-                <ul>
-                    <li>
-                        <a href="">Home</a>
-                    </li>
-                    <li>
-                        <a href="">About us</a>
-                    </li>
-                    <li>
-                        <a href="">Service</a>
-                    </li>
-                    <li>
-                        <a href="">Pages</a>
-                    </li>
-                    <li>
-                        <a href="">Blog</a>
-                    </li>
-                    <li>
-                        <a href="">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="busca">
-                <input type="text" />
-            </div>
-        </div>
-    </main>
+
 </body>
 
 </html>
