@@ -4,6 +4,10 @@ body {
     margin: 0 auto;
 }
 
+ul {
+    padding: 0px!important;
+}
+
 .menu-principal {
     width: 100%;
     background-color: #252323;
@@ -25,7 +29,6 @@ main {
 .redes-sociais ul li {
     margin-left: 10px;
     display: inline-block;
-    float: left;
     list-style: none;
 }
 
